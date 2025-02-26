@@ -1,0 +1,16 @@
+merge:
+  method: ties
+  parameters:
+    scaling_coefficient: 0.4 # 每个微调模型对应的系数 pretrained + scaling_coefficient * delta，默认设置 0.4
+    trim_rate: 0.8 # TIES方法中使用的trim裁切率，默认使用top-20%。根据振幅直接裁切掉80%的delta参数。
+    drop_rate: 0.9 # DARE方法中drop delta参数的比率，默认使用90%。
+
+model:
+  pretrained: meta-llama/Llama-2-7b-hf
+  finetuned:
+    - WizardLMTeam/WizardMath-7B-V1.0
+    - PKU-Alignment/beaver-7b-v3.0
+
+output:
+  path: ./output
+
