@@ -43,7 +43,7 @@ def save_state_and_model_for_hf_trainer(trainer: Trainer):
         trainer._save(trainer.args.output_dir, state_dict=cpu_state_dict)
 
 
-def load_state_and_model_for_hf_trainer(model: nn.Module, load_model_dir: str, map_location: str = None):
+def load_state_and_model_for_hf_trainer(model: nn.Module, load_model_dir: str, map_location: str = None): # type: ignore
     """
     load the state and model for trainer
     :param model: nn.Module, the model to be loaded
