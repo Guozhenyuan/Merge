@@ -4,6 +4,7 @@
 
 import re
 import os
+import json
 from typing import Dict
 import random
 import numpy as np
@@ -110,3 +111,14 @@ def smart_tokenizer_and_embedding_resize(
 
         input_embeddings[-num_new_tokens:] = input_embeddings_avg
         output_embeddings[-num_new_tokens:] = output_embeddings_avg
+
+
+
+def load_json(path):
+    with open(path, 'r+', encoding='utf-8') as file:
+        data = json.load(file)
+    return data
+
+def save_json(data, path):
+    with open(path, 'w', encoding='utf-8') as file:
+        json.dump(data, file, ensure_ascii=False, indent=4)

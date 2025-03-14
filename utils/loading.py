@@ -124,13 +124,6 @@ def add_extra_token(
     # else:
     #     pass
 
-    
-
-
-
-
-
-
 
 def load_model_and_tokenizer_from_hf(path: str):
     model = AutoModelForCausalLM.from_pretrained(path)

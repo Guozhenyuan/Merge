@@ -48,7 +48,12 @@ class MergeBase:
 
     def merge(self):
         
-
         pass
+
+    def process_list_to_dict(self, param_list)->Dict[str,List[torch.Tensor]]:
+        param_dict = {}
+        for name_param, tensor in param_list[0].items():
+            param_dict[name_param] = [pl[name_param] for pl in param_list]
+        return param_dict
 
 # @torch.inference_mode()

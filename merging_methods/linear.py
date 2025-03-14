@@ -1,6 +1,7 @@
 import sys
 # sys.path.append('/zju_wck/gzy/MergeLLM/merging_methods/')
-sys.path.append('Merge/merging_methods/')
+# sys.path.append('Merge/merging_methods/')
+sys.path.append('.')
 
 from tqdm import tqdm
 import torch

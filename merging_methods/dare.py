@@ -2,7 +2,8 @@ import sys
 
 from linear import MergeLinear
 # sys.path.append('/zju_wck/gzy/MergeLLM/merging_methods/')
-sys.path.append('Merge/merging_methods/')
+# sys.path.append('Merge/merging_methods/')
+sys.path.append('.')
 
 from tqdm import tqdm
 import torch
@@ -72,6 +73,7 @@ class MergeDARE(MergeTIES):
             if method == 'random':
                 # import pdb;pdb.set_trace()
                 task_vectors.append(((1-torch.bernoulli(torch.full_like(input=ptt, fill_value=dp)))*(ftt-ptt))/(1-dp)) # 使用bernoulli分布进行随机mask，并进行放缩
+                # task_vectors.append((1-torch.bernoulli(torch.full_like(input=ptt, fill_value=dp)))*(ftt-ptt))
 
             elif method == 'magnitude': # 将最小的一部分参数进行随机mask
                 tv = ftt - ptt
